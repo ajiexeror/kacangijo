@@ -5,10 +5,10 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\User;
-Use DB;
 
 class UserRolePermissionSeeder extends Seeder
 {
@@ -24,7 +24,7 @@ class UserRolePermissionSeeder extends Seeder
             'password' => '$2y$10$Bq.WoiIxVZI8ds49YVkSr.XhU8x6vfl5xrRbp8K8pyxNVyXgWWx/u', // password
             'remember_token' => Str::random(10),
         ];
-        
+            
         DB::beginTransaction();
         try {
             // create user
@@ -56,10 +56,15 @@ class UserRolePermissionSeeder extends Seeder
             $role_manager = Role::create(['name' => 'manager']);
 
             // create permission
-            $permission = Permission::create(['name' => 'read']);
-            $permission = Permission::create(['name' => 'create']);
-            $permission = Permission::create(['name' => 'update']);
-            $permission = Permission::create(['name' => 'delete']);
+            $permission = Permission::create(['name' => 'role-list']);
+            $permission = Permission::create(['name' => 'role-create']);
+            $permission = Permission::create(['name' => 'role-update']);
+            $permission = Permission::create(['name' => 'role-delete']);
+
+            $role_admin->givePermissionTo('role-list');
+            $role_admin->givePermissionTo('role-create');
+            $role_admin->givePermissionTo('role-update');
+            $role_admin->givePermissionTo('role-delete');
 
             // assign user to role
             $admin->assignRole('admin');

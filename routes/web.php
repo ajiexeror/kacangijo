@@ -27,12 +27,19 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    
+    Route::resource('role', RoleController::class);
 });
 
 require __DIR__.'/auth.php';
 
 
-Route::controller(RoleController::class)->group(function(){
-    Route::get('/roles', 'index');
-});
+// Route::middleware('auth')->group(function(){
+
+//     Route::resource('role', RoleController::class);
+// });
+// Route::controller(RoleController::class)->group(function(){
+//     Route::get('/roles', 'index')->middleware('can:role-list');
+//     Route::get('/roles/create', 'create')->middleware('can:role-create');
+// });
     

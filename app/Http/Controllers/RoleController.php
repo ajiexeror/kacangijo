@@ -3,9 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class RoleController extends Controller
 {
+    protected $__route;
+    protected $__pagetitle;
+
+    public function __construct() 
+    {
+        $this->__route = 'role';
+        $this->__pagetitle = 'Role';
+        
+        $this->middleware('can:role-create')->only('create');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,13 +25,20 @@ class RoleController extends Controller
      */
     public function index(Request $request)
     {
+        // if(!Gate::allows('role-list')) {
+        //     abort(403, 'ga nduwe akses');
+        // }
         //
-        if($request->user()->hasRole('admin'))
-        {
-            return "role admin page";
-        }
+        // if($request->user()->hasRole('admin'))
+        // {
+        //     return "admin page";
+        // }
+        // abort(403);
+        $this->authorize('role-list');
 
-        abort(403);
+        return view($this->__route.'.index', [
+            'pagetitle' => $this->__pagetitle
+        ]);
     }
 
     /**
@@ -30,6 +49,7 @@ class RoleController extends Controller
     public function create()
     {
         //
+        return 'role create admin';
     }
 
     /**
