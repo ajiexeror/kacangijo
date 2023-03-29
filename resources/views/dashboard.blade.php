@@ -9,7 +9,7 @@
                 </div>
             @endif
 
-            {{ __('You are logged in!') }}
+            {{ __('ok. You are logged in!') }}
         </div>
 
 @endsection
