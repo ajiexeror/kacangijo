@@ -18,6 +18,8 @@
 		<!--begin::Fonts-->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 		<!--end::Fonts-->
+
+		@yield('addbeforecss')
 		<!--begin::Page Vendor Stylesheets(used by this page)-->
 		<link href="{{ asset('assets/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet" type="text/css" />
 		<!--end::Page Vendor Stylesheets-->
@@ -48,6 +50,7 @@
 		<script src="{{ asset('assets/js/custom/modals/upgrade-plan.js') }}"></script>
 		<!--end::Page Custom Javascript-->
 		<!--end::Javascript-->
+		@yield('addafterjs')
 	</body>
 	<!--end::Body-->
 </html>

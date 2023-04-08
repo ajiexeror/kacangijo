@@ -34,7 +34,7 @@ class RoleController extends Controller
         //     return "admin page";
         // }
         // abort(403);
-        $this->authorize('role-list');
+        $this->authorize('role-read');
 
         return view($this->__route.'.index', [
             'pagetitle' => $this->__pagetitle

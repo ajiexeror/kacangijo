@@ -18,8 +18,8 @@
 					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 						<!--begin::Toolbar-->
 
-                        <!-- layout-partial::layouts.master._breadcrumb-->
-                        @include('layouts.master._breadcrumb')
+                        <!-- layout-partial::layouts.master._toolbar-->
+                        @include('layouts.master._toolbar')
 						
                         <!--end::Toolbar-->
 						

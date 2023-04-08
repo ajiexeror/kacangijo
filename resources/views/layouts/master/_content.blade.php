@@ -3,13 +3,15 @@
 
 							<!--begin::Container-->
 							<div id="kt_content_container" class="container-xxl">
-						
 								<!--begin::Row-->
-								<div class="card">
+								@if (Request::segment(1) == 'role')
 									@yield('content')
-								</div>
+								@else
+									<div class="card">
+										@yield('content')
+									</div>
+								@endif
 								<!--end::Row-->
-							
 							</div>
 							<!--end::Container-->
 						
