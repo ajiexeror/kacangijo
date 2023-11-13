@@ -21,7 +21,7 @@ class UserRolePermissionSeeder extends Seeder
     {
         $default_user_value = [
             'email_verified_at' => now(),
-            'password' => '$2y$10$Bq.WoiIxVZI8ds49YVkSr.XhU8x6vfl5xrRbp8K8pyxNVyXgWWx/u', // password
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
         ];
             
@@ -38,7 +38,7 @@ class UserRolePermissionSeeder extends Seeder
                     'name' => 'staff',
                 ], $default_user_value
             ));
-            $spv = User::create(array_merge([
+            $supervisor = User::create(array_merge([
                     'email' => 'spv01@abcd.com',
                     'name' => 'supervisor',
                 ], $default_user_value
@@ -61,6 +61,9 @@ class UserRolePermissionSeeder extends Seeder
             Permission::create(['name' => 'role-update']);
             Permission::create(['name' => 'role-delete']);
             Permission::create(['name' => 'usermanagement-read']);
+            Permission::create(['name' => 'usermanagement-create']);
+            Permission::create(['name' => 'usermanagement-update']);
+            Permission::create(['name' => 'usermanagement-delete']);
 
             $role_admin->givePermissionTo([
                 'role-read',
@@ -73,7 +76,7 @@ class UserRolePermissionSeeder extends Seeder
             // assign user to role
             $admin->assignRole('admin');
             $staff->assignRole('staff');
-            $spv->assignRole('supervisor');
+            $supervisor->assignRole('supervisor');
             $manager->assignRole('manager');
 
             DB::commit();
