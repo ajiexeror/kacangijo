@@ -8,8 +8,8 @@
 										<span class="menu-section text-muted text-uppercase fs-8 ls-1">N A V I G A T I O N</span>
 									</div>
 								</div>
-								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-									<a class="menu-link" href="{{ route('dashboard') }}">
+								<div class="menu-item">
+									<a class="menu-link active" href="{{ route('dashboard') }}">
 										<span class="menu-icon">
 											<!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
 											<span class="svg-icon svg-icon-2">
@@ -24,6 +24,8 @@
 										</span>
 										<span class="menu-title">Dashboard</span>
 									</a>
+								</div>
+								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									@can('usermanagement-read')
 										<span class="menu-link">
 										<span class="menu-icon">
