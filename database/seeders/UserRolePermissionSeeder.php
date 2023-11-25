@@ -33,27 +33,15 @@ class UserRolePermissionSeeder extends Seeder
                     'name' => 'admin',
                 ], $default_user_value
             ));
-            $staff = User::create(array_merge([
-                    'email' => 'staff01@abcd.com',
-                    'name' => 'staff',
-                ], $default_user_value
-            ));
-            $supervisor = User::create(array_merge([
-                    'email' => 'spv01@abcd.com',
-                    'name' => 'supervisor',
-                ], $default_user_value
-            ));       
-            $manager = User::create(array_merge([
-                    'email' => 'manager@abcd.com',
-                    'name' => 'manager',
+            $user = User::create(array_merge([
+                    'email' => 'user01@abcd.com',
+                    'name' => 'user',
                 ], $default_user_value
             ));
             
             // create role
             $role_admin = Role::create(['name' => 'admin']);
-            $role_staff = Role::create(['name' => 'staff']);
-            $role_supervisor = Role::create(['name' => 'supervisor']);
-            $role_manager = Role::create(['name' => 'manager']);
+            $role_user = Role::create(['name' => 'user']);
 
             // create permission
             Permission::create(['name' => 'role-read']);
@@ -70,14 +58,19 @@ class UserRolePermissionSeeder extends Seeder
                 'role-create',
                 'role-update',
                 'role-delete',
+                'usermanagement-read',
+                'usermanagement-create',
+                'usermanagement-update',
+                'usermanagement-delete'
+            ]);
+
+            $role_user->givePermissionTo([
                 'usermanagement-read'
             ]);
 
             // assign user to role
             $admin->assignRole('admin');
-            $staff->assignRole('staff');
-            $supervisor->assignRole('supervisor');
-            $manager->assignRole('manager');
+            $user->assignRole('user');
 
             DB::commit();
 
