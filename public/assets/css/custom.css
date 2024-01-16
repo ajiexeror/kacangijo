@@ -1,0 +1,8 @@
+/* style custom */
+
+.form-control.form-control-solid {
+    background-color: #d0d0d0;
+    border-color: #f5f8fa;
+    color: #5e6278;
+    transition: color .2s ease, background-color .2s ease;
+}

@@ -17,25 +17,25 @@ class KelasTableSeeder extends Seeder
     {
         Kelas::create([
             'sekolah_id' => 1,
-            'kelas_nama' => 'KIkhwan 1',
+            'nama_kelas' => 'KIkhwan 1',
             'keterangan' => 'kelas Ikhwan 1'
         ]);
 
         Kelas::create([
             'sekolah_id' => 1,
-            'kelas_nama' => 'KIkhwan 2',
+            'nama_kelas' => 'KIkhwan 2',
             'keterangan' => 'kelas Ikhwan 2'
         ]);
 
         Kelas::create([
             'sekolah_id' => 1,
-            'kelas_nama' => 'KAkhwat 1',
+            'nama_kelas' => 'KAkhwat 1',
             'keterangan' => 'kelas Akhwat 1'
         ]);
 
         Kelas::create([
             'sekolah_id' => 1,
-            'kelas_nama' => 'KAkhwat 2',
+            'nama_kelas' => 'KAkhwat 2',
             'keterangan' => 'kelas Akhwat 2'
         ]);
     }

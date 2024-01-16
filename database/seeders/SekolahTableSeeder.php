@@ -16,7 +16,7 @@ class SekolahTableSeeder extends Seeder
     public function run()
     {
         Sekolah::create([
-            'sekolah_nama' => 'RBQ Annas bin Malik',
+            'nama_sekolah' => 'RBQ Annas bin Malik',
             'keterangan' => 'Rumah Baca Quran Annas bin Malik, cilebut'
         ]);
     }

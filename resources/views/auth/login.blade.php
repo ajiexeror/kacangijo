@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet" type="text/css" />
 </head>
 
 <body id="kt_body" class="bg-body">
@@ -20,9 +21,9 @@
             <!--begin::Content-->
             <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
                 <!--begin::Logo-->
-                <a href="../../demo1/dist/index.html" class="mb-12">
-                    <img alt="Logo" src="{{ asset('assets/media/logos/logo-1.svg') }}" class="h-40px" />
-                </a>
+                {{-- <a href="../../demo1/dist/index.html" class="mb-12">
+					<img alt="Logo" src="{{ asset('assets/media/logos/logo-1.svg') }}" class="h-40px" />
+				</a> --}}
                 <!--end::Logo-->
                 <!--begin::Wrapper-->
                 <div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
@@ -38,9 +39,9 @@
                             <!--end::Title-->
                             <!--begin::Link-->
                             {{-- <div class="text-gray-400 fw-bold fs-4">New Here?
-                                <a href="../../demo1/dist/authentication/flows/basic/sign-up.html"
-                                    class="link-primary fw-bolder">Create an Account</a>
-                            </div> --}}
+								<a href="../../demo1/dist/authentication/flows/basic/sign-up.html"
+									class="link-primary fw-bolder">Create an Account</a>
+							</div> --}}
                             <!--end::Link-->
                         </div>
                         <!--begin::Heading-->
@@ -58,25 +59,22 @@
                         <!--end::Input group-->
                         <!--begin::Input group-->
                         <div class="fv-row mb-10">
-                            <!--begin::Wrapper-->
                             <div class="d-flex flex-stack mb-2">
-                                <!--begin::Label-->
                                 <label class="form-label fw-bolder text-dark fs-6 mb-0">Password</label>
-                                <!--end::Label-->
-                                <!--begin::Link-->
-                                {{-- <a href="../../demo1/dist/authentication/flows/basic/password-reset.html"
-                                    class="link-primary fs-6 fw-bolder">Forgot Password ?</a> --}}
-                                <!--end::Link-->
                             </div>
-                            <!--end::Wrapper-->
-                            <!--begin::Input-->
                             <input class="form-control form-control-lg form-control-solid" type="password"
                                 name="password" id="password" autocomplete="current-password" required />
                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
 
                             <!--end::Input-->
                         </div>
-                        <!--end::Input group-->
+                        <div class="fv-row mb-5">
+                            <input id="remember_me" type="checkbox"
+                                class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
+                                name="remember">
+                            <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                            <!--end::Input-->
+                        </div>
                         <!--begin::Actions-->
                         <div class="text-center">
                             <!--begin::Submit button-->
@@ -99,9 +97,9 @@
             <div class="d-flex flex-center flex-column-auto p-10">
                 <!--begin::Links-->
                 <div class="d-flex align-items-center fw-bold fs-6">
-                    <a href="/about" class="text-muted text-hover-primary px-2">About</a>
-                    <a href="mailto:halo@rbq.gw" class="text-muted text-hover-primary px-2">Contact</a>
-                    <a href="/contact-us" class="text-muted text-hover-primary px-2">Contact Us</a>
+                    {{-- <a href="/about" class="text-muted text-hover-primary px-2">About</a>
+					<a href="mailto:halo@rbq.gw" class="text-muted text-hover-primary px-2">Contact</a>
+					<a href="/contact-us" class="text-muted text-hover-primary px-2">Contact Us</a> --}}
                 </div>
                 <!--end::Links-->
             </div>

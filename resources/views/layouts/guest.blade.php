@@ -14,6 +14,7 @@
 
     <!-- Scripts -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.bundle.css') }}" />
+    <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet" type="text/css" />
 </head>
 
 <body class="font-sans text-gray-900 antialiased">

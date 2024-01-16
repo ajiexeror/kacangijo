@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('kelas_id');
             $table->string('sekolah_id');
             $table->string('nama_kelas');
-            // $table->string('keterangan');
+            $table->string('keterangan');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -24,21 +24,25 @@ class UserRolePermissionSeeder extends Seeder
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
         ];
-            
+
         DB::beginTransaction();
         try {
             // create user
-            $admin = User::create(array_merge([
+            $admin = User::create(array_merge(
+                [
                     'email' => 'admin@abcd.com',
                     'name' => 'admin',
-                ], $default_user_value
+                ],
+                $default_user_value
             ));
-            $user = User::create(array_merge([
+            $user = User::create(array_merge(
+                [
                     'email' => 'user01@abcd.com',
                     'name' => 'user',
-                ], $default_user_value
+                ],
+                $default_user_value
             ));
-            
+
             // create role
             $role_admin = Role::create(['name' => 'admin']);
             $role_user = Role::create(['name' => 'user']);
@@ -52,6 +56,8 @@ class UserRolePermissionSeeder extends Seeder
             Permission::create(['name' => 'usermanagement-create']);
             Permission::create(['name' => 'usermanagement-update']);
             Permission::create(['name' => 'usermanagement-delete']);
+
+
 
             $role_admin->givePermissionTo([
                 'role-read',
@@ -73,10 +79,8 @@ class UserRolePermissionSeeder extends Seeder
             $user->assignRole('user');
 
             DB::commit();
-
         } catch (\Throwable $e) {
             DB::rollBack();
         }
-
     }
 }
